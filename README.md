@@ -11,6 +11,9 @@ WinDjView is a fast, compact and powerful DjVu viewer for Windows with tabbed in
 
 ![WinDjView screenshot](https://a.fsdn.com/con/app/proj/windjview/screenshots/328149.jpg)
 
+## Українська локалізація
+Повний український інтерфейс для WinDjView 2.1 і готові інсталятори — див. [docs/UKRAINIAN.md](docs/UKRAINIAN.md). / Full Ukrainian UI translation for WinDjView 2.1 and installers: [docs/UKRAINIAN.md](docs/UKRAINIAN.md).
+
 ## Files
 [Download WinDjView](https://sourceforge.net/projects/windjview/files/latest/download)
 
