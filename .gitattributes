@@ -1,0 +1,4 @@
+# Shell scripts must keep LF line endings (they are run on Linux / in CI)
+*.sh text eol=lf
+# Binary resources copied unchanged from the official executable
+installer/tools/afx_res/*.bin binary

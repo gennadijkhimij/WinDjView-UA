@@ -13,3 +13,10 @@ ipch
 *.suo
 *.user
 *.lib
+
+# Ukrainian installer build output (installer/tools/build.sh)
+installer/build/
+installer/dist/
+installer/*.exe
+installer/bin/**/*.exe
+installer/bin/**/*.dll
