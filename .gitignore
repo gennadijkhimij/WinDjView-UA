@@ -20,3 +20,6 @@ installer/dist/
 installer/*.exe
 installer/bin/**/*.exe
 installer/bin/**/*.dll
+
+# Python bytecode
+__pycache__/
