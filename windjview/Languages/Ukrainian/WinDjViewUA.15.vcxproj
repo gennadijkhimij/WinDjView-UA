@@ -82,8 +82,8 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;AFX_RESOURCE_DLL;AFX_TARG_RUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0419</Culture>
+      <PreprocessorDefinitions>NDEBUG;AFX_RESOURCE_DLL;AFX_TARG_UKR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0422</Culture>
     </ResourceCompile>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -119,8 +119,8 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;AFX_RESOURCE_DLL;AFX_TARG_RUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0419</Culture>
+      <PreprocessorDefinitions>NDEBUG;AFX_RESOURCE_DLL;AFX_TARG_UKR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0422</Culture>
     </ResourceCompile>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -141,12 +141,16 @@
   <ItemGroup>
     <Image Include="..\..\res\bookmarks.bmp" />
     <Image Include="..\..\res\close.bmp" />
+    <Image Include="..\..\res\close_tab.bmp" />
     <Image Include="..\..\res\dictbar.bmp" />
+    <Image Include="..\..\res\dictbar_grayed.bmp" />
     <Image Include="..\..\res\DjVuDoc.ico" />
     <Image Include="..\..\res\donate.bmp" />
     <Image Include="..\..\res\hourglass.bmp" />
     <Image Include="..\..\res\pan_anchor.bmp" />
+    <Image Include="..\..\res\settings.bmp" />
     <Image Include="..\..\res\Toolbar.bmp" />
+    <Image Include="..\..\res\Toolbar_grayed.bmp" />
     <Image Include="..\..\res\WinDjView.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +169,7 @@
     <None Include="..\..\res\pan_ud.cur" />
     <None Include="..\..\res\pan_ul.cur" />
     <None Include="..\..\res\pan_ur.cur" />
+    <None Include="..\..\res\split_h.cur" />
     <None Include="..\..\res\WinDjView.rc2" />
     <None Include="..\..\res\zoom_rect.cur" />
   </ItemGroup>

@@ -31,7 +31,13 @@
     <Image Include="..\..\res\close.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\res\close_tab.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
     <Image Include="..\..\res\dictbar.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\res\dictbar_grayed.bmp">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\res\DjVuDoc.ico">
@@ -46,7 +52,13 @@
     <Image Include="..\..\res\pan_anchor.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\res\settings.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
     <Image Include="..\..\res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\res\Toolbar_grayed.bmp">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\res\WinDjView.ico">
@@ -97,6 +109,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\..\res\pan_ur.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\res\split_h.cur">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\..\res\WinDjView.rc2">
