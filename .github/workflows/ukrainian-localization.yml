@@ -37,16 +37,10 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: WinDjView-Ukrainian
-          path: |
-            installer/dist/*
-            installer/build/x64/WinDjViewUA.dll
-            installer/build/x86/WinDjViewUA.dll
+          path: installer/dist/*
 
       - name: Attach to the GitHub Release (ua-v* tags)
         if: startsWith(github.ref, 'refs/tags/ua-v')
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            installer/dist/*
-            installer/build/x64/WinDjViewUA.dll
-            installer/build/x86/WinDjViewUA.dll
+          files: installer/dist/*

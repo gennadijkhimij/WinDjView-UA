@@ -10,7 +10,7 @@
 |---|---|
 | `WinDjView-2.1-Setup.exe` | Повний інсталятор: програма (64-бітна) + українська мова. Інтерфейс інсталятора — українська/англійська. Тихе встановлення: `/S`, папка: `/D=C:\Папка`. |
 | `WinDjView-2.1-Ukrainian-Setup.exe` | Лише мовний пакет для вже встановленого WinDjView 2.1 (x86 або x64): сам знаходить програму і додає `WinDjViewUA.dll`. |
-| `WinDjViewUA.dll` (x64, x86) | Мовна DLL для ручного копіювання поруч із `WinDjView.exe`. |
+| `WinDjViewUA-x64.dll`, `WinDjViewUA-x86.dll` | Мовна DLL для ручного копіювання поруч із `WinDjView.exe` (перейменуйте на `WinDjViewUA.dll`). |
 
 Після встановлення мова вмикається в меню **Вигляд → Мова (Language) → Українська** (повний інсталятор може зробити це сам для поточного користувача). Програма завантажує мовну DLL лише якщо її версія (2.1) збігається з версією програми.
 
@@ -37,7 +37,7 @@ sudo apt-get install mingw-w64 nsis python3-pefile
 installer/tools/build.sh
 ```
 
-Результат: `installer/build/{x64,x86}/WinDjViewUA.dll` і `installer/dist/*.exe` разом із `SHA256SUMS.txt`. Повний інсталятор збирається, лише якщо в `installer/bin/x64/` лежить офіційний `WinDjView.exe` (див. `installer/bin/README.txt`); за наявності ще й `installer/bin/x86/WinDjView.exe` інсталятор підтримуватиме і 32-бітну Windows.
+Результат: `installer/build/{x64,x86}/WinDjViewUA.dll` та `installer/dist/` (інсталятори, `WinDjViewUA-x64.dll`, `WinDjViewUA-x86.dll`, `SHA256SUMS.txt`). Повний інсталятор збирається, лише якщо в `installer/bin/x64/` лежить офіційний `WinDjView.exe` (див. `installer/bin/README.txt`); за наявності ще й `installer/bin/x86/WinDjView.exe` інсталятор підтримуватиме і 32-бітну Windows.
 
 ### Windows (Visual Studio)
 
