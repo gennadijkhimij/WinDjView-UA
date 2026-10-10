@@ -455,6 +455,7 @@ public:
 	enum { IDD = IDD_ABOUTBOX };
 	CStatic m_weblinkLibrary;
 	CStatic m_weblink;
+	CStatic m_weblinkProject;
 	CMyBitmapButton m_btnDonate;
 
 // Overrides
@@ -485,6 +486,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 	CMyDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_STATIC_LINK, m_weblink);
 	DDX_Control(pDX, IDC_STATIC_LIB_LINK, m_weblinkLibrary);
+	DDX_Control(pDX, IDC_STATIC_PROJECT_LINK, m_weblinkProject);
 	DDX_Control(pDX, IDC_DONATE, m_btnDonate);
 
 	CString strVersion = FormatString(IDS_VERSION_ABOUT, CURRENT_VERSION);
@@ -510,7 +512,8 @@ HBRUSH CAboutDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 	HBRUSH brush = CMyDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 
 	if (pWnd->GetSafeHwnd() == m_weblink.m_hWnd
-			|| pWnd->GetSafeHwnd() == m_weblinkLibrary.m_hWnd)
+			|| pWnd->GetSafeHwnd() == m_weblinkLibrary.m_hWnd
+			|| pWnd->GetSafeHwnd() == m_weblinkProject.m_hWnd)
 	{
 		pDC->SetTextColor(RGB(0, 0, 204));
 	}
@@ -549,6 +552,15 @@ BOOL CAboutDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 		return true;
 	}
 
+	CRect rcWeblinkProject;
+	m_weblinkProject.GetWindowRect(rcWeblinkProject);
+
+	if (rcWeblinkProject.PtInRect(ptCursor))
+	{
+		::SetCursor(hCursor);
+		return true;
+	}
+
 	return CMyDialog::OnSetCursor(pWnd, nHitTest, message);
 }
 
@@ -576,6 +588,17 @@ void CAboutDlg::OnLButtonDown(UINT nFlags, CPoint point)
 		return;
 	}
 
+	CRect rcWeblinkProject;
+	m_weblinkProject.GetWindowRect(rcWeblinkProject);
+	ScreenToClient(rcWeblinkProject);
+
+	if (rcWeblinkProject.PtInRect(point))
+	{
+		::ShellExecute(NULL, _T("open"), LoadString(IDS_PROJECT_URL),
+				NULL, NULL, SW_SHOW);
+		return;
+	}
+
 	CMyDialog::OnLButtonDown(nFlags, point);
 }
 
@@ -599,6 +622,7 @@ BOOL CAboutDlg::OnInitDialog()
 
 	m_weblink.SetFont(&m_font);
 	m_weblinkLibrary.SetFont(&m_font);
+	m_weblinkProject.SetFont(&m_font);
 
 	m_btnDonate.LoadBitmaps(IDB_DONATE);
 

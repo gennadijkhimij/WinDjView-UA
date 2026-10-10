@@ -474,7 +474,7 @@ BEGIN
     LTEXT           "WinDjView-UA:",IDC_STATIC,40,93,64,8
     LTEXT           "http://windjview.sourceforge.net",IDC_STATIC_LINK,114,73,139,8
     LTEXT           "http://djvu.sourceforge.net",IDC_STATIC_LIB_LINK,114,83,131,8
-    LTEXT           "https://github.com/gennadijkhimij/WinDjView-UA",IDC_STATIC,114,93,166,8,SS_NOPREFIX
+    LTEXT           "https://github.com/gennadijkhimij/WinDjView-UA",IDC_STATIC_PROJECT_LINK,114,93,166,8,SS_NOPREFIX
     LTEXT           "License",IDC_STATIC_LICENSE,40,110,240,34
     LTEXT           "You can support further development of this program by donating through PayPal",IDC_STATIC,40,151,170,17
     CONTROL         "Donate",IDC_DONATE,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,217,150,63,21
@@ -1056,6 +1056,7 @@ BEGIN
                             "A new version %s is available. Do you want to open the downloads page?"
     IDS_VERSION_URL         "https://raw.githubusercontent.com/gennadijkhimij/WinDjView-UA/main/version.txt"
     IDS_WEBSITE_URL         "https://windjview.sourceforge.net"
+    IDS_PROJECT_URL         "https://github.com/gennadijkhimij/WinDjView-UA"
     IDS_DOWNLOAD_URL        "https://github.com/gennadijkhimij/WinDjView-UA/releases/latest"
     IDS_DJVULIBRE_URL       "http://djvu.sourceforge.net"
     IDS_DONATE_URL          "https://sourceforge.net/donate/index.php?group_id=114927"
