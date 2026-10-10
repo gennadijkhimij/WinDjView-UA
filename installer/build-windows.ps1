@@ -1,6 +1,6 @@
 # Builds WinDjView-UA on Windows: WinDjView.exe + WinDjViewUA.dll (x64 and Win32) and the NSIS installer.
 # Needs: Visual Studio 2026 with "Desktop development with C++" and "C++ MFC", NSIS 3.x.
-# Result: installer\dist\WinDjView-UA-<version>-Setup.exe and SHA256SUMS.txt
+# Result: installer\dist\WinDjView-UA-<version>-Setup-x64-x86.exe (one installer for both) and SHA256SUMS.txt
 #   powershell -ExecutionPolicy Bypass -File installer\build-windows.ps1
 $ErrorActionPreference = 'Stop'
 $inst = $PSScriptRoot
@@ -37,7 +37,7 @@ Push-Location $inst
 try {
     & $makensis /V2 "/DAPP_VERSION=$version" WinDjView-Setup.nsi
     if ($LASTEXITCODE -ne 0) { throw 'makensis failed' }
-    Move-Item -Force "WinDjView-UA-$version-Setup.exe" $dist
+    Move-Item -Force "WinDjView-UA-$version-Setup-x64-x86.exe" $dist
 } finally { Pop-Location }
 
 Push-Location $dist

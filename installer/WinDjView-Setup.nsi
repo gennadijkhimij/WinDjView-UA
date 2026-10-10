@@ -16,7 +16,8 @@
 ;
 ; Install folder, Start menu folder and the uninstall entry are named WinDjView-UA, so the official
 ; WinDjView can stay installed side by side; the program keeps its settings in HKCU\Software\WinDjView-UA.
-; Silent install / update:  WinDjView-UA-2.1.1-Setup.exe /S   [/D=C:\Folder]
+; One installer for both: installs the 64-bit build on 64-bit Windows, the 32-bit build otherwise.
+; Silent install / update:  WinDjView-UA-<version>-Setup-x64-x86.exe /S   [/D=C:\Folder]
 ; ---------------------------------------------------------------------------
 Unicode true
 !define APP_NAME    "WinDjView-UA"
@@ -42,7 +43,7 @@ Unicode true
 !endif
 
 Name "${APP_NAME} ${APP_VERSION}"
-OutFile "${APP_NAME}-${APP_VERSION}-Setup.exe"
+OutFile "${APP_NAME}-${APP_VERSION}-Setup-x64-x86.exe"
 SetCompressor /SOLID lzma
 RequestExecutionLevel admin
 InstallDir "__auto__"
@@ -81,6 +82,10 @@ LangString SEC_MENU  ${LANG_UKRAINIAN} "Ярлики в меню «Пуск»"
 LangString SEC_MENU  ${LANG_ENGLISH}   "Start Menu shortcuts"
 LangString SEC_DESK  ${LANG_UKRAINIAN} "Ярлик на робочому столі"
 LangString SEC_DESK  ${LANG_ENGLISH}   "Desktop shortcut"
+LangString MSG_X64   ${LANG_UKRAINIAN} "Встановлюється 64-бітна версія WinDjView-UA"
+LangString MSG_X64   ${LANG_ENGLISH}   "Installing the 64-bit version of WinDjView-UA"
+LangString MSG_X86   ${LANG_UKRAINIAN} "Встановлюється 32-бітна версія WinDjView-UA"
+LangString MSG_X86   ${LANG_ENGLISH}   "Installing the 32-bit version of WinDjView-UA"
 
 Function .onInit
   SetShellVarContext all          ; per-machine install: shortcuts for all users
@@ -105,9 +110,11 @@ Section "$(SEC_MAIN)" SecMain
   SetOutPath "$INSTDIR"
   SetOverwrite on
   ${If} ${RunningX64}
+    DetailPrint "$(MSG_X64)"
     File "${BIN_X64}\WinDjView.exe"
     File "${DLL_X64}\WinDjViewUA.dll"
   ${Else}
+    DetailPrint "$(MSG_X86)"
     File "${BIN_X86}\WinDjView.exe"
     File "${DLL_X86}\WinDjViewUA.dll"
   ${EndIf}

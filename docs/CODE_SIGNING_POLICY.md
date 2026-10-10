@@ -13,7 +13,7 @@ After approval / Після схвалення:
 
 Only files built by GitHub Actions from this repository
 (`.github/workflows/windjview-ua.yml`, `installer/build-windows.ps1`) for a release tag `v*`:
-`WinDjView.exe`, `WinDjViewUA.dll` and `WinDjView-UA-<version>-Setup.exe`.
+`WinDjView.exe`, `WinDjViewUA.dll` and `WinDjView-UA-<version>-Setup-x64-x86.exe`.
 Product name in the file metadata: **WinDjView-UA**, product version = release version.
 Every signing request is approved manually.
 

@@ -17,7 +17,7 @@
    ```
    powershell -ExecutionPolicy Bypass -File installer\build-windows.ps1
    ```
-   Результат: `installer/dist/WinDjView-UA-<версія>-Setup.exe`, `SHA256SUMS.txt`.
+   Результат: `installer/dist/WinDjView-UA-<версія>-Setup-x64-x86.exe`, `SHA256SUMS.txt`.
 3. **Перевірка безпеки й роботи:**
    - встановити (`/S` — тихо), запустити, «Про програму», «Перевірити оновлення», відкрити кілька DjVu;
    - у властивостях exe: ProductName `WinDjView-UA`, версія — нова;
@@ -39,7 +39,7 @@
 
 ## Тихе оновлення
 
-`WinDjView-UA-<версія>-Setup.exe /S` ставить нову версію в ту саму теку поверх старої;
+`WinDjView-UA-<версія>-Setup-x64-x86.exe /S` ставить нову версію в ту саму теку поверх старої;
 налаштування (`HKCU\Software\WinDjView-UA`) зберігаються.
 
 ## SourceForge (якщо обліковий запис відновлять)

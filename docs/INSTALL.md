@@ -8,7 +8,7 @@ https://github.com/gennadijkhimij/WinDjView-UA/releases/latest
 
 | Файл | Що це |
 |---|---|
-| **`WinDjView-UA-<версія>-Setup.exe`** | інсталятор — завантажувати його |
+| **`WinDjView-UA-<версія>-Setup-x64-x86.exe`** | інсталятор — завантажувати його. Один файл для 64- і 32-бітної Windows: потрібну версію він вибирає сам |
 | `SHA256SUMS.txt` | контрольна сума для перевірки |
 | `Source code (zip / tar.gz)` | вихідний код (звичайному користувачу не потрібен) |
 
@@ -20,7 +20,7 @@ https://github.com/gennadijkhimij/WinDjView-UA/releases/latest
 У PowerShell, у теці із завантаженим файлом:
 
 ```powershell
-Get-FileHash .\WinDjView-UA-2.1.2-Setup.exe -Algorithm SHA256
+Get-FileHash .\WinDjView-UA-2.1.3-Setup-x64-x86.exe -Algorithm SHA256
 ```
 
 Результат має **повністю** збігатися з рядком у `SHA256SUMS.txt` того самого релізу.
@@ -49,7 +49,7 @@ Get-FileHash .\WinDjView-UA-2.1.2-Setup.exe -Algorithm SHA256
 ## Для адміністраторів (кілька комп'ютерів)
 
 ```
-WinDjView-UA-2.1.2-Setup.exe /S                 (тихе встановлення / оновлення)
+WinDjView-UA-2.1.3-Setup-x64-x86.exe /S                 (тихе встановлення / оновлення)
 "C:\Program Files\WinDjView-UA\uninstall.exe" /S (тихе видалення)
 ```
 

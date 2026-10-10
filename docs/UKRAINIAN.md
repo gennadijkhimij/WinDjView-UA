@@ -31,7 +31,7 @@ powershell -ExecutionPolicy Bypass -File installer\build-windows.ps1
 ```
 
 Скрипт збирає `windjview\WinDjView.15.sln` (Release x64 і Win32: `WinDjView.exe`, `WinDjViewUA.dll`, `libdjvu`),
-потім інсталятор → `installer\dist\WinDjView-UA-<версія>-Setup.exe` і `SHA256SUMS.txt`.
+потім інсталятор → `installer\dist\WinDjView-UA-<версія>-Setup-x64-x86.exe` і `SHA256SUMS.txt`.
 Версію бере з `IDS_CURRENT_VERSION`. На Visual Studio 2022 використовує набір інструментів v143 (так збирає GitHub Actions).
 
 Окремо в Visual Studio: відкрити `windjview\WinDjView.15.sln`, проєкт **WinDjView.15**, Release x64/Win32.

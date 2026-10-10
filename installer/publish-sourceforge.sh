@@ -1,7 +1,7 @@
 #!/bin/bash
 # Publishes a WinDjView-UA release to SourceForge (project windjview-ua) over SFTP.
 # usage: installer/publish-sourceforge.sh <version> [--announce]
-#   uploads installer/dist/WinDjView-UA-<version>-Setup.exe and SHA256SUMS.txt to Files/<version>/;
+#   uploads installer/dist/WinDjView-UA-<version>-Setup-x64-x86.exe and SHA256SUMS.txt to Files/<version>/;
 #   with --announce also uploads sourceforge/htdocs/index.html and version.txt to the project web,
 #   which makes installed copies offer the update. version.txt must already contain <version>.
 # Needs: SSH key registered at https://sourceforge.net/auth/shell_services
@@ -13,7 +13,7 @@ SF_USER=${SF_USER:-gennadijkhimij}
 SF_KEY=${SF_KEY:-$HOME/.ssh/sourceforge_ed25519}
 REPO=$(cd "$(dirname "$0")/.." && pwd)
 DIST="$REPO/installer/dist"
-SETUP="WinDjView-UA-$VERSION-Setup.exe"
+SETUP="WinDjView-UA-$VERSION-Setup-x64-x86.exe"
 SSH_OPTS=(-i "$SF_KEY" -o IdentitiesOnly=yes -o BatchMode=yes)
 
 [ -f "$DIST/$SETUP" ] || { echo "missing $DIST/$SETUP (run installer/build-windows.ps1)"; exit 1; }

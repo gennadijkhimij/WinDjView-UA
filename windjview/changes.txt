@@ -2,7 +2,9 @@ WinDjView-UA version history (modified version of WinDjView)
 (C) 2026 Gennadij Khimij - https://github.com/gennadijkhimij/WinDjView-UA
 ------------------------------------------------------------------------
 
-Changes in WinDjView-UA 2.1.3 (in development):
+Changes in WinDjView-UA 2.1.3:
+* Installer named WinDjView-UA-<version>-Setup-x64-x86.exe: one installer
+  for 64- and 32-bit Windows; it shows which build it installs.
 * About: the WinDjView-UA link is clickable like the other links.
 * About: removed the PayPal donation button of the original WinDjView.
 
