@@ -816,13 +816,13 @@ BEGIN
     BEGIN
         BLOCK "04090000"
         BEGIN
-            VALUE "CompanyName", "Andrew Zhezherun"
-            VALUE "FileDescription", "WinDjView"
+            VALUE "CompanyName", "Gennadij Khimij"
+            VALUE "FileDescription", "WinDjView-UA DjVu viewer"
             VALUE "FileVersion", "2.1.1"
             VALUE "InternalName", "WinDjView.exe"
-            VALUE "LegalCopyright", "Copyright (C) 2004-2015 Andrew Zhezherun. All rights reserved."
+            VALUE "LegalCopyright", "(C) 2026 Gennadij Khimij; WinDjView (C) 2004-2015 Andrew Zhezherun. GNU GPL v2 or later"
             VALUE "OriginalFilename", "WinDjView.exe"
-            VALUE "ProductName", "WinDjView"
+            VALUE "ProductName", "WinDjView-UA"
             VALUE "ProductVersion", "2.1.1"
         END
     END
