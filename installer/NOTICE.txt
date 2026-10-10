@@ -5,14 +5,25 @@ WinDjView-UA — модифікована версія WinDjView.
 Програма надається «як є», без жодних гарантій.
 
 Вихідний код: https://github.com/gennadijkhimij/WinDjView-UA
-Завантаження й оновлення: https://sourceforge.net/projects/windjview-ua/
+Завантаження й оновлення (лише звідси): https://github.com/gennadijkhimij/WinDjView-UA/releases/latest
 
-Зміни відносно WinDjView 2.1 (повний перелік — в історії git репозиторію):
+Зміни відносно WinDjView 2.1 (повний перелік — changes.txt та історія git репозиторію):
 - повний український переклад інтерфейсу; мова за замовчуванням — українська;
 - збірка Visual Studio 2026 (x64 і x86), статичні MFC/CRT;
-- виправлено аварійне завершення «Властивостей документа» для багатофайлових документів (x64);
 - власні налаштування в реєстрі (HKCU\Software\WinDjView-UA), окрема тека встановлення;
-- перевірка оновлень через https://windjview-ua.sourceforge.io/version.txt.
+- перевірка оновлень через GitHub (HTTPS); програма лише повідомляє про нову версію.
+
+Кіберзахист:
+- виправлення безпеки бібліотеки DjVuLibre 2014–2026 (CVE-2019-15142…15145, CVE-2019-18804,
+  CVE-2021-3500, CVE-2021-3630, CVE-2021-32490…32493, CVE-2025-53367 та інші);
+- Control Flow Guard, ASLR, DEP, /GS;
+- мовна DLL завантажується лише як ресурси, системні DLL — лише з System32 (захист від підміни DLL);
+- виправлено помилку пам'яті у «Властивостях документа» (x64);
+- програма не збирає й не надсилає жодних даних; щотижневу перевірку оновлень можна вимкнути
+  («Налаштування → Додатково»).
+Перевіряйте контрольну суму інсталятора (SHA256SUMS.txt у релізі). Відкривайте DjVu-файли з невідомих
+джерел обережно. Про вразливості повідомляйте приватно:
+https://github.com/gennadijkhimij/WinDjView-UA/security/advisories/new
 
 -------------------------------------------------------------------------------
 
@@ -23,4 +34,8 @@ License: GNU General Public License version 2 or (at your option) any later vers
 This program comes with ABSOLUTELY NO WARRANTY.
 
 Source code: https://github.com/gennadijkhimij/WinDjView-UA
-Downloads and updates: https://sourceforge.net/projects/windjview-ua/
+Downloads and updates (only from here): https://github.com/gennadijkhimij/WinDjView-UA/releases/latest
+
+Security: DjVuLibre security fixes 2014-2026 backported; Control Flow Guard, ASLR, DEP, /GS; the language
+DLL is mapped as resources only and system DLLs are loaded from System32 only; no data collection; the
+weekly update check can be turned off. Verify the SHA-256 of the installer (SHA256SUMS.txt in the release).

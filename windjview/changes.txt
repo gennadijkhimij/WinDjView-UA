@@ -1,3 +1,25 @@
+WinDjView-UA version history (modified version of WinDjView)
+(C) 2026 Gennadij Khimij - https://github.com/gennadijkhimij/WinDjView-UA
+------------------------------------------------------------------------
+
+Changes in WinDjView-UA 2.1.2:
+! Security: DjVuLibre security fixes 2014-2026 backported to the bundled
+  library (CVE-2019-15142..15145, CVE-2019-18804, CVE-2021-3500,
+  CVE-2021-3630, CVE-2021-32490..32493, CVE-2025-53367 and others).
+! Security: the language DLL is loaded as resources only (its code never
+  runs); system DLLs are loaded from System32 only, never from the current
+  folder or PATH (protection against DLL planting).
+* Update check moved to GitHub (the SourceForge project was removed).
+* File properties: product name WinDjView-UA.
+
+Changes in WinDjView-UA 2.1.1 (2026-10-10):
+! Built from source with Visual Studio 2026 (x64 and x86), static MFC/CRT,
+  Control Flow Guard.
++ Complete Ukrainian translation; Ukrainian is the default language.
++ Update check over HTTPS.
+* Fixed a crash in Document Properties for multi-file documents (x64).
+* Own settings key (HKCU\Software\WinDjView-UA) and install folder.
+
 WinDjView version history
 Copyright (C) 2004-2015 Andrew Zhezherun
 ----------------------------------------
