@@ -405,7 +405,7 @@ filter_fv(short *p, int w, int h, int rowsize, int scale)
   int y = 0;
   int s = scale*rowsize;
   int s3 = s+s+s;
-  h = ((h-1)/scale)+1;
+  h = (h>0) ? ((h-1)/scale)+1 : 0;
   y += 1;
   p += s;
   while (y-3 < h)
@@ -1424,7 +1424,10 @@ IWBitmap::Encode::init(const GBitmap &bm, const GP<GBitmap> gmask)
   int h = bm.rows();
   int g = bm.get_grays()-1;
   signed char *buffer;
-  GPBuffer<signed char> gbuffer(buffer,w*h);
+  size_t sz = w * h;
+  if (sz == 0 || g <= 0 || sz / (size_t)w != (size_t)h)
+    G_THROW("IW44Image: inconsistent image size (corrupted file?)");
+  GPBuffer<signed char> gbuffer(buffer,sz);
   // Prepare gray level conversion table
   signed char  bconv[256];
   for (i=0; i<256; i++)

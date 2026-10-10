@@ -211,7 +211,8 @@ DjVuTXT::Zone::encode(
       y=y-prev->rect.ymin;
     }
     start-=prev->text_start+prev->text_length;
-  } else if (parent)
+  }
+  else if (parent)
   {
     // Encode offset from the upper left corner of the parent
     // in the coord system in that corner with x to the right and y down
@@ -247,7 +248,8 @@ DjVuTXT::Zone::decode(const GP<ByteStream> &gbs, int maxtext,
   ByteStream &bs=*gbs;
   // Decode type
   ztype = (ZoneType) bs.read8();
-  if ( ztype<PAGE || ztype>CHARACTER )
+  if ( ztype < PAGE || ztype > CHARACTER ||
+       (parent && ztype <= parent->ztype) )
     G_THROW( ERR_MSG("DjVuText.corrupt_text") );
 
   // Decode coordinates
@@ -258,7 +260,7 @@ DjVuTXT::Zone::decode(const GP<ByteStream> &gbs, int maxtext,
 
   // Decode text info
   text_start = (int) bs.read16()-0x8000;
-//  int start=text_start;
+  //  int start=text_start;
   text_length = bs.read24();
   if (prev)
   {
@@ -272,7 +274,8 @@ DjVuTXT::Zone::decode(const GP<ByteStream> &gbs, int maxtext,
       y=y+prev->rect.ymin;
     }
     text_start+=prev->text_start+prev->text_length;
-  } else if (parent)
+  }
+  else if (parent)
   {
     x=x+parent->rect.xmin;
     y=parent->rect.ymax-(y+height);
@@ -353,9 +356,9 @@ DjVuTXT::decode(const GP<ByteStream> &gbs)
   int textsize = bs.read24();
   char *buffer = textUTF8.getbuf(textsize);
   int readsize = bs.read(buffer,textsize);
-  buffer[readsize] = 0;
-  if (readsize < textsize)
+  if (readsize < textsize || textsize <= 0)
     G_THROW( ERR_MSG("DjVuText.corrupt_chunk") );
+  buffer[readsize] = 0;
   // Try reading zones
   unsigned char version;
   if ( bs.read( (void*) &version, 1 ) == 1) 

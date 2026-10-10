@@ -1848,7 +1848,7 @@ GStringRep::UTF8::toNative(const EscapeMode escape) const
     const size_t length=strlen(data);
     const unsigned char * const eptr=(const unsigned char *)(data+length);
     unsigned char *buf;
-    GPBuffer<unsigned char> gbuf(buf,12*length+12); 
+    GPBuffer<unsigned char> gbuf(buf,14*length+14); 
     unsigned char *r=buf;
     mbstate_t ps;
     memset(&ps,0,sizeof(mbstate_t));
@@ -1869,7 +1869,7 @@ GStringRep::UTF8::toNative(const EscapeMode escape) const
               {
                 if (escape == IS_ESCAPED)
                   {
-                    sprintf((char *)r,"&#%lu;",(unsigned long)w0);
+                    snprintf((char *)r, 14, "&#%lu;", (unsigned long)w0);
                     r += strlen((char *)r);
                   }
                 else

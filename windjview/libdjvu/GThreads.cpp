@@ -149,18 +149,14 @@ start(void *arg)
         {
           ex.perror();
           DjVuMessageLite::perror( ERR_MSG("GThreads.uncaught") );
-#ifdef _DEBUG
           abort();
-#endif
         }
       G_ENDCATCH;
     }
   catch(...)
     {
       DjVuMessageLite::perror( ERR_MSG("GThreads.unrecognized") );
-#ifdef _DEBUG
       abort();
-#endif
     }
   return 0;
 }
@@ -426,19 +422,15 @@ GThread::start(void *arg)
         {
           ex.perror();
           DjVuMessageLite::perror( ERR_MSG("GThreads.uncaught") );
-#ifdef _DEBUG
           abort();
-#endif
         }
       G_ENDCATCH;
 #ifdef __EXCEPTIONS
     }
   catch(...)
     {
-          DjVuMessageLite::perror( ERR_MSG("GThreads.unrecognized") );
-#ifdef _DEBUG
+      DjVuMessageLite::perror( ERR_MSG("GThreads.unrecognized") );
       abort();
-#endif
     }
 #endif
   return 0;
