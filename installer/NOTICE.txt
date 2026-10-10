@@ -23,7 +23,7 @@ WinDjView-UA — модифікована версія WinDjView.
   («Налаштування → Додатково»).
 Перевіряйте контрольну суму інсталятора (SHA256SUMS.txt у релізі). Відкривайте DjVu-файли з невідомих
 джерел обережно. Про вразливості повідомляйте приватно:
-https://github.com/gennadijkhimij/WinDjView-UA/security/advisories/new
+https://github.com/gennadijkhimij/WinDjView-UA/security
 
 -------------------------------------------------------------------------------
 

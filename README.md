@@ -24,7 +24,7 @@ A modified version of the WinDjView DjVu viewer for Windows: complete Ukrainian 
 
 **Ліцензія:** GNU GPL версії 2 або (на ваш вибір) будь-якої пізнішої. Програма надається «як є», без жодних гарантій.
 
-**Супровід:** Хімій Геннадій. Збірка, перевірка й випуск — [docs/UKRAINIAN.md](docs/UKRAINIAN.md), [docs/RELEASE.md](docs/RELEASE.md). Про вразливості — приватно через [GitHub Security Advisories](https://github.com/gennadijkhimij/WinDjView-UA/security/advisories/new).
+**Супровід:** Хімій Геннадій. Збірка, перевірка й випуск — [docs/UKRAINIAN.md](docs/UKRAINIAN.md), [docs/RELEASE.md](docs/RELEASE.md). Про вразливості — приватно через [GitHub Security Advisories](https://github.com/gennadijkhimij/WinDjView-UA/security).
 
 ## English
 
@@ -34,7 +34,7 @@ A modified version of the WinDjView DjVu viewer for Windows: complete Ukrainian 
 
 **Authorship:** WinDjView-UA is a modified version of WinDjView. © 2026 Gennadij Khimij — Ukrainian localization, update check, changes and fixes (personal project). Based on WinDjView © 2004–2015 Andrew Zhezherun, © 2012–2015 Leonid Zhezherun.
 
-**License:** GNU GPL version 2 or (at your option) any later version. Provided "as is", without any warranty. Report vulnerabilities privately via [GitHub Security Advisories](https://github.com/gennadijkhimij/WinDjView-UA/security/advisories/new).
+**License:** GNU GPL version 2 or (at your option) any later version. Provided "as is", without any warranty. Report vulnerabilities privately via [GitHub Security Advisories](https://github.com/gennadijkhimij/WinDjView-UA/security).
 
 ---
 

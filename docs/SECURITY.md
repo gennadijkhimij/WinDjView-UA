@@ -45,7 +45,7 @@
 ## Повідомити про вразливість
 
 Не публікуйте подробиці у відкритих issues. Скористайтеся
-[приватним повідомленням про вразливість](https://github.com/gennadijkhimij/WinDjView-UA/security/advisories/new)
+[приватним повідомленням про вразливість](https://github.com/gennadijkhimij/WinDjView-UA/security)
 на GitHub. Вразливості самої бібліотеки DjVuLibre повідомляйте також її розробникам:
 https://sourceforge.net/p/djvu/bugs/
 
