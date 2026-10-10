@@ -457,7 +457,7 @@ END
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOGEX 0, 0, 287, 147
+IDD_ABOUTBOX DIALOGEX 0, 0, 287, 177
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Про програму WinDjView"
 FONT 8, "MS Shell Dlg", 0, 0, 0xCC
@@ -466,14 +466,18 @@ BEGIN
     LTEXT           "WinDjView",IDC_STATIC_VERSION,40,7,119,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2004-2015 Андрій Жежерун",IDC_STATIC,40,17,171,8
     LTEXT           "Copyright (C) 2012-2015 Леонід Жежерун",IDC_STATIC,40,27,171,8
+    LTEXT           "Українська локалізація (2026): Хімій Геннадій",IDC_STATIC,40,37,240,8
+    LTEXT           "Змінено лише переклад інтерфейсу, код програми не змінювався.",IDC_STATIC,40,47,240,8
     DEFPUSHBUTTON   "Закрити",IDOK,230,7,50,14,WS_GROUP
-    LTEXT           "Сторінка проєкту:",IDC_STATIC,40,45,69,8
-    LTEXT           "Сторінка DjVuLibre:",IDC_STATIC,40,55,72,8
-    LTEXT           "http://windjview.sourceforge.net",IDC_STATIC_LINK,111,45,139,8
-    LTEXT           "http://djvu.sourceforge.net",IDC_STATIC_LIB_LINK,113,55,131,8
-    LTEXT           "Ліцензія",IDC_STATIC_LICENSE,40,72,240,42
-    LTEXT           "Ви можете підтримати подальшу розробку програми, зробивши пожертву через PayPal",IDC_STATIC,40,120,174,17
-    CONTROL         "Donate",IDC_DONATE,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,217,119,63,21
+    LTEXT           "Сторінка проєкту:",IDC_STATIC,40,65,69,8
+    LTEXT           "Сторінка DjVuLibre:",IDC_STATIC,40,75,72,8
+    LTEXT           "Локалізація:",IDC_STATIC,40,85,69,8
+    LTEXT           "http://windjview.sourceforge.net",IDC_STATIC_LINK,111,65,139,8
+    LTEXT           "http://djvu.sourceforge.net",IDC_STATIC_LIB_LINK,113,75,131,8
+    LTEXT           "https://github.com/gennadijkhimij/WinDjView-UA",IDC_STATIC,111,85,169,8,SS_NOPREFIX
+    LTEXT           "Ліцензія",IDC_STATIC_LICENSE,40,102,240,42
+    LTEXT           "Ви можете підтримати подальшу розробку програми, зробивши пожертву через PayPal",IDC_STATIC,40,150,174,17
+    CONTROL         "Donate",IDC_DONATE,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,217,149,63,21
 END
 
 IDD_PRINT DIALOGEX 0, 0, 456, 316

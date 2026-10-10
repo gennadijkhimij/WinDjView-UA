@@ -2,6 +2,21 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7ec65881031945409b45d7239a9ac189)](https://app.codacy.com/manual/raspopov/WinDjView?utm_source=github.com&utm_medium=referral&utm_content=raspopov/WinDjView&utm_campaign=Badge_Grade_Settings)
 
+## Українська локалізація (2026)
+
+**Оригінальна програма:** WinDjView — вільний переглядач DjVu для Windows. Автори: Андрій Жежерун (Andrew Zhezherun), Леонід Жежерун. Ліцензія: GNU General Public License версії 2 або (на ваш вибір) будь-якої пізнішої.
+Сайт: https://windjview.sourceforge.net · Вихідний код: https://github.com/raspopov/WinDjView
+
+**Українська локалізація:** Хімій Геннадій, 2026. Створено в межах роботи в Брошнів-Осадській селищній раді.
+
+**Що змінено:** новий переклад ресурсів інтерфейсу (`WinDjViewUA.dll`) та інсталятори. Код програми WinDjView не змінювався; повний інсталятор містить офіційний `WinDjView.exe` 2.1 без змін. Подробиці, збірка й перевірка — [docs/UKRAINIAN.md](docs/UKRAINIAN.md).
+
+**Ліцензія:** локалізація поширюється на тих самих умовах — GNU GPL версії 2 або пізнішої. Програма надається «як є», без жодних гарантій.
+
+**Вихідний код локалізації:** https://github.com/gennadijkhimij/WinDjView-UA
+
+**Підтримка:** подальша підтримка й оновлення локалізації не плануються.
+
 *A fast, compact, and powerful DjVu viewer.*
 
 Brought to you by: [Andrew Zhezherun](https://sourceforge.net/u/zhezherun/profile/)
@@ -10,9 +25,6 @@ Brought to you by: [Andrew Zhezherun](https://sourceforge.net/u/zhezherun/profil
 WinDjView is a fast, compact and powerful DjVu viewer for Windows with tabbed interface, continuous scrolling and advanced printing options, based on free DjVuLibre library.
 
 ![WinDjView screenshot](https://a.fsdn.com/con/app/proj/windjview/screenshots/328149.jpg)
-
-## Українська локалізація
-Повний український інтерфейс для WinDjView 2.1 і готові інсталятори — див. [docs/UKRAINIAN.md](docs/UKRAINIAN.md). / Full Ukrainian UI translation for WinDjView 2.1 and installers: [docs/UKRAINIAN.md](docs/UKRAINIAN.md).
 
 ## Files
 [Download WinDjView](https://sourceforge.net/projects/windjview/files/latest/download)
