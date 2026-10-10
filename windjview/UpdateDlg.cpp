@@ -99,7 +99,7 @@ void CUpdateDlg::OnEndDialog()
 			if (AfxMessageBox(FormatString(IDS_NEW_VERSION_AVAILABLE, m_strNewVersion),
 					MB_ICONQUESTION | MB_YESNO) == IDYES)
 			{
-				::ShellExecute(NULL, _T("open"), LoadString(IDS_WEBSITE_URL),
+				::ShellExecute(NULL, _T("open"), LoadString(IDS_DOWNLOAD_URL),
 						NULL, NULL, SW_SHOW);
 			}
 		}

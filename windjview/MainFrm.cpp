@@ -1875,7 +1875,7 @@ void CMainFrame::OnNewVersion()
 	if (theApp.DoMessageBox(FormatString(IDS_NEW_VERSION_AVAILABLE, theApp.m_strNewVersion),
 			MB_ICONQUESTION | MB_YESNO, 0, mbo) == IDYES)
 	{
-		::ShellExecute(NULL, _T("open"), LoadString(IDS_WEBSITE_URL),
+		::ShellExecute(NULL, _T("open"), LoadString(IDS_DOWNLOAD_URL),
 				NULL, NULL, SW_SHOW);
 	}
 

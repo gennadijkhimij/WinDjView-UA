@@ -1058,8 +1058,9 @@ BEGIN
                             "Ви використовуєте найновішу версію. Будь ласка, перевірте оновлення пізніше."
     IDS_NEW_VERSION_AVAILABLE 
                             "Знайдена нова версія %s. Відкрити сайт програми в Інтернеті?"
-    IDS_VERSION_URL         "http://windjview.sourceforge.net/version.txt"
-    IDS_WEBSITE_URL         "http://windjview.sourceforge.net"
+    IDS_VERSION_URL         "https://windjview-ua.sourceforge.io/version.txt"
+    IDS_WEBSITE_URL         "https://windjview.sourceforge.net"
+    IDS_DOWNLOAD_URL        "https://sourceforge.net/projects/windjview-ua/files/"
     IDS_DJVULIBRE_URL       "http://djvu.sourceforge.net"
     IDS_DONATE_URL          "https://sourceforge.net/donate/index.php?group_id=114927"
     IDS_STRING_NOT_FOUND    "Текст не знайдений"

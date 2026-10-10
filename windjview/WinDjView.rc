@@ -1054,8 +1054,9 @@ BEGIN
                             "No updates are available at this time. Please check again later."
     IDS_NEW_VERSION_AVAILABLE 
                             "A new version %s is available. Do you want to open the downloads page?"
-    IDS_VERSION_URL         "http://windjview.sourceforge.net/version.txt"
-    IDS_WEBSITE_URL         "http://windjview.sourceforge.net"
+    IDS_VERSION_URL         "https://windjview-ua.sourceforge.io/version.txt"
+    IDS_WEBSITE_URL         "https://windjview.sourceforge.net"
+    IDS_DOWNLOAD_URL        "https://sourceforge.net/projects/windjview-ua/files/"
     IDS_DJVULIBRE_URL       "http://djvu.sourceforge.net"
     IDS_DONATE_URL          "https://sourceforge.net/donate/index.php?group_id=114927"
     IDS_STRING_NOT_FOUND    "Search string not found"
