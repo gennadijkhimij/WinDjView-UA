@@ -3,6 +3,7 @@
   * all resources are in language 0x0422, VERSIONINFO has FileVersion == IDS_CURRENT_VERSION and Translation 0x0422
     (WinDjView only loads a language DLL whose FileVersion equals its own version);
   * RT_TOOLBAR resources use the layout MFC expects (windres would write 32-bit ids and MFC would crash);
+  * menu texts keep the TAB before shortcuts (a path rewrite once turned "...\tCtrl+O" into ".../tCtrl+O");
   * the Ukrainian .rc defines every identifier the Russian reference .rc defines.
 usage: verify_dll.py <repo root> <dll> [<dll> ...]"""
 import re, struct, sys, os
@@ -41,6 +42,11 @@ for path in dlls:
                     ver, w, h, cnt = struct.unpack_from('<4H', data)
                     if ver != 1 or len(data) != 8 + 2 * cnt:
                         errors.append('%s: toolbar %s has a wrong layout' % (path, i.id))
+    raw = open(path, 'rb').read()
+    for off in (0, 1):                                            # menu shortcuts must be separated by a TAB, not "/t"
+        bad = sorted(set(re.findall(r'/t(?:Ctrl|Alt|Shift|F\d)[^\x00]{0,12}', raw[off:].decode('utf-16-le', 'replace'))))
+        if bad:
+            errors.append('%s: "/t" instead of TAB in menu texts: %s' % (path, ', '.join(bad[:10])))
     if langs != {0x422}:
         errors.append('%s: resource languages %s (expected only 0x422)' % (path, sorted(hex(x) for x in langs)))
     pe.parse_data_directories([pefile.DIRECTORY_ENTRY['IMAGE_DIRECTORY_ENTRY_RESOURCE']])

@@ -15,11 +15,13 @@ cp "$SRC/Languages/$LANGDIR/resource.h" "$T/Languages/$LANGDIR/"
 cp "$TOOLS/afxres.h" "$T/Languages/$LANGDIR/afxres.h"
 cp -r "$TOOLS/afx_res" "$T/Languages/$LANGDIR/afx_res"
 python3 - "$SRC/Languages/$LANGDIR/$RCNAME" "$T/Languages/$LANGDIR/t.rc" "$TOOLS" <<'PY'
-import sys
+import re, sys
 b=open(sys.argv[1],'rb').read(); out=[]
+# Windows paths -> POSIX, only inside quoted "..\..." file names: menu texts like "&Open...\tCtrl+O" also contain ..\
+path=re.compile(rb'"\.\.\\[^"]*"')
 for l in b.replace(b'\r\n',b'\n').split(b'\n'):
-    if b'..\\' in l and b'\\r\\n' not in l:
-        l=l.replace(b'\\\\',b'/').replace(b'\\',b'/')          # Windows paths -> POSIX
+    if b'\\r\\n' not in l:
+        l=path.sub(lambda m: m.group(0).replace(b'\\\\',b'/').replace(b'\\',b'/'), l)
     if (b'afxres.rc' in l or b'afxprint.rc' in l) and b'\\r\\n' not in l:
         l=b'// '+l                                              # MSVC-only MFC boilerplate
     out.append(l)
