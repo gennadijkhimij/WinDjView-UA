@@ -17,6 +17,21 @@
 
 **Супровід:** Хімій Геннадій. Готується WinDjView-UA — модифікована версія WinDjView, зібрана з вихідного коду, з перевіркою оновлень через цей репозиторій.
 
+## Ukrainian localization (2026)
+
+**Original program:** WinDjView — a free DjVu viewer for Windows by Andrew Zhezherun and Leonid Zhezherun. License: GNU General Public License version 2 or (at your option) any later version.
+Website: https://windjview.sourceforge.net · Source code: https://github.com/raspopov/WinDjView
+
+**Ukrainian localization:** © 2026 Hennadii Khimii — interface translation, installers, changes and fixes (personal project).
+
+**What was changed:** a new translation of the interface resources (`WinDjViewUA.dll`) and installers. The WinDjView program code was not modified; the full installer contains the official, unmodified `WinDjView.exe` 2.1. Details, build and testing: [docs/UKRAINIAN.md](docs/UKRAINIAN.md) (in Ukrainian).
+
+**License:** the localization is distributed under the same terms — GNU GPL version 2 or later. The program is provided "as is", without any warranty.
+
+**Localization source code:** https://github.com/gennadijkhimij/WinDjView-UA
+
+**Maintainer:** Hennadii Khimii. WinDjView-UA is in preparation — a modified version of WinDjView built from source, with update checks via this repository.
+
 *A fast, compact, and powerful DjVu viewer.*
 
 Brought to you by: [Andrew Zhezherun](https://sourceforge.net/u/zhezherun/profile/)
