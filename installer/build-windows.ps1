@@ -42,7 +42,8 @@ try {
 
 Push-Location $dist
 try {
-    Get-ChildItem *.exe | ForEach-Object { '{0}  {1}' -f (Get-FileHash $_.Name -Algorithm SHA256).Hash.ToLower(), $_.Name } |
-        Set-Content SHA256SUMS.txt -Encoding ascii
+    # LF line endings, so that `sha256sum -c SHA256SUMS.txt` works on Linux and in Git Bash
+    $sums = Get-ChildItem *.exe | ForEach-Object { '{0}  {1}' -f (Get-FileHash $_.Name -Algorithm SHA256).Hash.ToLower(), $_.Name }
+    [IO.File]::WriteAllText((Join-Path $dist 'SHA256SUMS.txt'), (($sums -join "`n") + "`n"))
     Get-Content SHA256SUMS.txt
 } finally { Pop-Location }

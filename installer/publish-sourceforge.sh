@@ -17,7 +17,7 @@ SETUP="WinDjView-UA-$VERSION-Setup.exe"
 SSH_OPTS=(-i "$SF_KEY" -o IdentitiesOnly=yes -o BatchMode=yes)
 
 [ -f "$DIST/$SETUP" ] || { echo "missing $DIST/$SETUP (run installer/build-windows.ps1)"; exit 1; }
-(cd "$DIST" && sha256sum -c SHA256SUMS.txt)
+(cd "$DIST" && tr -d '\r' < SHA256SUMS.txt | sha256sum -c -)
 
 sftp -b - "${SSH_OPTS[@]}" "$SF_USER@frs.sourceforge.net" <<EOF
 -mkdir /home/frs/project/windjview-ua/$VERSION
