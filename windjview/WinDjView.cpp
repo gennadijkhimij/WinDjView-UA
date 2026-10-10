@@ -456,7 +456,6 @@ public:
 	CStatic m_weblinkLibrary;
 	CStatic m_weblink;
 	CStatic m_weblinkProject;
-	CMyBitmapButton m_btnDonate;
 
 // Overrides
 protected:
@@ -472,7 +471,6 @@ protected:
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
-	afx_msg void OnDonate();
 	DECLARE_MESSAGE_MAP()
 };
 
@@ -487,7 +485,6 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_STATIC_LINK, m_weblink);
 	DDX_Control(pDX, IDC_STATIC_LIB_LINK, m_weblinkLibrary);
 	DDX_Control(pDX, IDC_STATIC_PROJECT_LINK, m_weblinkProject);
-	DDX_Control(pDX, IDC_DONATE, m_btnDonate);
 
 	CString strVersion = FormatString(IDS_VERSION_ABOUT, CURRENT_VERSION);
 	DDX_Text(pDX, IDC_STATIC_VERSION, strVersion);
@@ -497,7 +494,6 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CMyDialog)
 	ON_WM_CTLCOLOR()
 	ON_WM_SETCURSOR()
 	ON_WM_LBUTTONDOWN()
-	ON_BN_CLICKED(IDC_DONATE, OnDonate)
 END_MESSAGE_MAP()
 
 // App command to run the dialog
@@ -602,12 +598,6 @@ void CAboutDlg::OnLButtonDown(UINT nFlags, CPoint point)
 	CMyDialog::OnLButtonDown(nFlags, point);
 }
 
-void CAboutDlg::OnDonate()
-{
-	::ShellExecute(NULL, _T("open"), LoadString(IDS_DONATE_URL),
-			NULL, NULL, SW_SHOW);
-}
-
 BOOL CAboutDlg::OnInitDialog()
 {
 	CMyDialog::OnInitDialog();
@@ -623,8 +613,6 @@ BOOL CAboutDlg::OnInitDialog()
 	m_weblink.SetFont(&m_font);
 	m_weblinkLibrary.SetFont(&m_font);
 	m_weblinkProject.SetFont(&m_font);
-
-	m_btnDonate.LoadBitmaps(IDB_DONATE);
 
 	GetDlgItem(IDC_STATIC_LICENSE)->SetWindowText(LoadString(IDS_ABOUT_LICENSE));
 

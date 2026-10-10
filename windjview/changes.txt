@@ -4,6 +4,7 @@ WinDjView-UA version history (modified version of WinDjView)
 
 Changes in WinDjView-UA 2.1.3 (in development):
 * About: the WinDjView-UA link is clickable like the other links.
+* About: removed the PayPal donation button of the original WinDjView.
 
 Changes in WinDjView-UA 2.1.2:
 ! Security: DjVuLibre security fixes 2014-2026 backported to the bundled

@@ -457,7 +457,7 @@ END
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOGEX 0, 0, 287, 178
+IDD_ABOUTBOX DIALOGEX 0, 0, 287, 151
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About WinDjView"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
@@ -476,8 +476,6 @@ BEGIN
     LTEXT           "http://djvu.sourceforge.net",IDC_STATIC_LIB_LINK,114,83,131,8
     LTEXT           "https://github.com/gennadijkhimij/WinDjView-UA",IDC_STATIC_PROJECT_LINK,114,93,166,8,SS_NOPREFIX
     LTEXT           "License",IDC_STATIC_LICENSE,40,110,240,34
-    LTEXT           "You can support further development of this program by donating through PayPal",IDC_STATIC,40,151,170,17
-    CONTROL         "Donate",IDC_DONATE,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,217,150,63,21
 END
 
 IDD_PRINT DIALOGEX 0, 0, 432, 316
