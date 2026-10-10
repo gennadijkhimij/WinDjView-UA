@@ -2,6 +2,10 @@ WinDjView-UA version history (modified version of WinDjView)
 (C) 2026 Gennadij Khimij - https://github.com/gennadijkhimij/WinDjView-UA
 ------------------------------------------------------------------------
 
+Changes in WinDjView-UA 2.1.4:
+* The 64-bit installation got a 32-bit WinDjViewUA.dll (the project file
+  targeted x86 for the x64 configuration). Now the DLL matches the program.
+
 Changes in WinDjView-UA 2.1.3:
 * Installer named WinDjView-UA-<version>-Setup-x64-x86.exe: one installer
   for 64- and 32-bit Windows; it shows which build it installs.

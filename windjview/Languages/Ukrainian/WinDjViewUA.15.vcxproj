@@ -125,7 +125,7 @@
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <NoEntryPoint>true</NoEntryPoint>
-      <TargetMachine>MachineX86</TargetMachine>
+      <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
