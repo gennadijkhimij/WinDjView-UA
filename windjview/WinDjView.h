@@ -83,6 +83,7 @@ public:
 	void UpdateFindDlg(CWnd* pNewParent = NULL);
 
 	static CString DownloadLastVersionString();
+	static void RestrictDllSearchPath();
 
 	// Dictionary API
 	int GetDictLangsCount() const

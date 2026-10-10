@@ -2,7 +2,7 @@
 # Publishes a WinDjView-UA release to SourceForge (project windjview-ua) over SFTP.
 # usage: installer/publish-sourceforge.sh <version> [--announce]
 #   uploads installer/dist/WinDjView-UA-<version>-Setup.exe and SHA256SUMS.txt to Files/<version>/;
-#   with --announce also uploads sourceforge/htdocs (index.html, version.txt) to the project web,
+#   with --announce also uploads sourceforge/htdocs/index.html and version.txt to the project web,
 #   which makes installed copies offer the update. version.txt must already contain <version>.
 # Needs: SSH key registered at https://sourceforge.net/auth/shell_services
 #   SF_USER (default gennadijkhimij), SF_KEY (default ~/.ssh/sourceforge_ed25519)
@@ -28,12 +28,12 @@ ls -l
 EOF
 
 if [ "$ANNOUNCE" = --announce ]; then
-  grep -qx "$VERSION" <(tr -d '\r\n ' < "$REPO/sourceforge/htdocs/version.txt"; echo) \
-    || { echo "sourceforge/htdocs/version.txt does not contain $VERSION"; exit 1; }
+  grep -qx "$VERSION" <(tr -d '\r\n ' < "$REPO/version.txt"; echo) \
+    || { echo "version.txt does not contain $VERSION"; exit 1; }
   sftp -b - "${SSH_OPTS[@]}" "$SF_USER@web.sourceforge.net" <<EOF
 cd /home/project-web/windjview-ua/htdocs
 put "$REPO/sourceforge/htdocs/index.html"
-put "$REPO/sourceforge/htdocs/version.txt"
+put "$REPO/version.txt"
 EOF
   echo "announced: https://windjview-ua.sourceforge.io/version.txt -> $VERSION"
 fi

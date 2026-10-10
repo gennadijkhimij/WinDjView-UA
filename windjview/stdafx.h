@@ -57,6 +57,14 @@
 #pragma warning(disable: 4244 4812)
 
 #include <afxwin.h>
+
+// LoadLibraryEx / SetDefaultDllDirectories flags (Vista / Windows 8 headers)
+#ifndef LOAD_LIBRARY_AS_IMAGE_RESOURCE
+#define LOAD_LIBRARY_AS_IMAGE_RESOURCE 0x00000020
+#endif
+#ifndef LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+#define LOAD_LIBRARY_SEARCH_DEFAULT_DIRS 0x00001000
+#endif
 #include <afxext.h>
 #include <afxcview.h>
 #include <afxinet.h>

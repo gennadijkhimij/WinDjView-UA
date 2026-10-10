@@ -180,6 +180,8 @@ CDjViewApp theApp;
 
 BOOL CDjViewApp::InitInstance()
 {
+	RestrictDllSearchPath();
+
 	_tsetlocale(LC_ALL, _T(""));
 
 	::CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
@@ -1674,7 +1676,10 @@ void CDjViewApp::SetLanguage(UINT nLangIndex)
 	LanguageInfo& info = m_languages[nLangIndex];
 	if (info.hInstance == NULL)
 	{
-		info.hInstance = ::LoadLibrary(info.strLibraryPath);
+		// Map the language DLL as resources only: its code (DllMain) is never executed,
+		// so a planted WinDjView*.dll next to the program cannot run code in this process.
+		info.hInstance = ::LoadLibraryEx(info.strLibraryPath, NULL,
+				LOAD_LIBRARY_AS_DATAFILE | LOAD_LIBRARY_AS_IMAGE_RESOURCE);
 		if (info.hInstance == NULL)
 		{
 			AfxMessageBox(_T("Could not change the language to ") + info.strLanguage);
@@ -2712,6 +2717,28 @@ void CDjViewApp::UpdateFindDlg(CWnd* pNewParent)
 	pMainFrame->m_bDontActivate = false;
 	pMainFrame->SetFocus();
 	pMainFrame->SetForegroundWindow();
+}
+
+void CDjViewApp::RestrictDllSearchPath()
+{
+	// Libraries loaded by name (uxtheme.dll, gdiplus.dll, ...) are searched only in the
+	// application folder and System32, never in the current folder or PATH (DLL hijacking).
+	// (both functions are looked up at run time: the project targets the Windows XP headers)
+	HMODULE hKernel32 = ::GetModuleHandle(_T("kernel32.dll"));
+	if (hKernel32 == NULL)
+		return;
+
+	typedef BOOL (WINAPI* pfnSetDllDirectoryW)(LPCWSTR);
+	pfnSetDllDirectoryW pSetDllDirectoryW =
+			(pfnSetDllDirectoryW) ::GetProcAddress(hKernel32, "SetDllDirectoryW");
+	if (pSetDllDirectoryW != NULL)
+		pSetDllDirectoryW(L"");
+
+	typedef BOOL (WINAPI* pfnSetDefaultDllDirectories)(DWORD);
+	pfnSetDefaultDllDirectories pSetDefaultDllDirectories =
+			(pfnSetDefaultDllDirectories) ::GetProcAddress(hKernel32, "SetDefaultDllDirectories");
+	if (pSetDefaultDllDirectories != NULL)
+		pSetDefaultDllDirectories(LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
 }
 
 CString CDjViewApp::DownloadLastVersionString()
