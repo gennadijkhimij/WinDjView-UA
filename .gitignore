@@ -23,3 +23,5 @@ installer/bin/**/*.dll
 
 # Python bytecode
 __pycache__/
+*.pdb
+/build-*.log
