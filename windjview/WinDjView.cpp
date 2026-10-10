@@ -194,7 +194,7 @@ BOOL CDjViewApp::InitInstance()
 	// Standard initialization
 
 	// Change the registry key under which our settings are stored
-	SetRegistryKey(_T("Andrew Zhezherun"));
+	SetRegistryKey(_T("WinDjView-UA"));
 
 	m_pDocManager = new CMyDocManager();
 

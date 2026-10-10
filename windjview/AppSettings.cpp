@@ -72,7 +72,7 @@ CAppSettings::CAppSettings()
 	bCheckUpdates = true;
 	nLastUpdateTime = 0;
 
-	nLanguage = 0x409;
+	nLanguage = 0x422;
 
 	bMatchCase = false;
 
