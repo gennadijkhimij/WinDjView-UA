@@ -1,0 +1,40 @@
+name: WinDjView-UA build
+
+# Builds WinDjView.exe + WinDjViewUA.dll (x64 and x86) with Visual Studio and the NSIS installer.
+# A tag v<version> (e.g. v2.1.1) also attaches the installer and SHA256SUMS.txt to a GitHub Release.
+# Publishing to SourceForge and raising version.txt is done separately (see docs/RELEASE.md).
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write   # needed only to attach files to a GitHub Release on v* tags
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install NSIS
+        run: choco install nsis -y --no-progress
+
+      - name: Build program and installer
+        shell: pwsh
+        run: |
+          $env:Path += ';C:\Program Files (x86)\NSIS'
+          ./installer/build-windows.ps1
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: WinDjView-UA
+          path: installer/dist/*
+
+      - name: Attach to the GitHub Release (v* tags)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: installer/dist/*
