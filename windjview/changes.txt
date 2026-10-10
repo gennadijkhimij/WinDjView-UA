@@ -2,6 +2,13 @@ WinDjView-UA version history (modified version of WinDjView)
 (C) 2026 Gennadij Khimij - https://github.com/gennadijkhimij/WinDjView-UA
 ------------------------------------------------------------------------
 
+Changes in WinDjView-UA 2.1.5:
+* Installer and uninstaller close a running WinDjView-UA (they ask first;
+  silent mode closes it automatically) instead of failing to replace
+  WinDjView.exe. The official WinDjView is not touched.
+* Installer: Ukrainian texts were garbled (the UTF-8 script was read in
+  the ANSI code page).
+
 Changes in WinDjView-UA 2.1.4:
 * The 64-bit installation got a 32-bit WinDjViewUA.dll (the project file
   targeted x86 for the x64 configuration). Now the DLL matches the program.

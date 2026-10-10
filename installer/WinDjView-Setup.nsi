@@ -86,6 +86,50 @@ LangString MSG_X64   ${LANG_UKRAINIAN} "Встановлюється 64-бітн
 LangString MSG_X64   ${LANG_ENGLISH}   "Installing the 64-bit version of WinDjView-UA"
 LangString MSG_X86   ${LANG_UKRAINIAN} "Встановлюється 32-бітна версія WinDjView-UA"
 LangString MSG_X86   ${LANG_ENGLISH}   "Installing the 32-bit version of WinDjView-UA"
+LangString MSG_RUNNING ${LANG_UKRAINIAN} "WinDjView-UA зараз відкрита. Закрити її й продовжити?$\n$\nНезбережені зміни (закладки, анотації) варто спершу зберегти."
+LangString MSG_RUNNING ${LANG_ENGLISH}   "WinDjView-UA is running. Close it and continue?$\n$\nSave unsaved changes (bookmarks, annotations) first."
+LangString MSG_CLOSING ${LANG_UKRAINIAN} "Закриття WinDjView-UA..."
+LangString MSG_CLOSING ${LANG_ENGLISH}   "Closing WinDjView-UA..."
+LangString MSG_STILL_RUNNING ${LANG_UKRAINIAN} "Не вдалося закрити WinDjView-UA. Закрийте її вручну й натисніть «Повторити»."
+LangString MSG_STILL_RUNNING ${LANG_ENGLISH}   "WinDjView-UA could not be closed. Close it manually and click Retry."
+
+; Close WinDjView-UA started from this installation folder before replacing or deleting its files.
+; Only $INSTDIR\WinDjView.exe is closed - the official WinDjView (same file name, other folder) is not touched.
+!macro CLOSE_RUNNING UN
+Function ${UN}CloseRunning
+  ${If} ${RunningX64}
+    ${DisableX64FSRedirection}
+  ${EndIf}
+  nsExec::ExecToStack `powershell.exe -NoProfile -NonInteractive -Command "exit (Get-Process WinDjView -ErrorAction SilentlyContinue | Where-Object { $$_.Path -eq '$INSTDIR\WinDjView.exe' } | Measure-Object).Count"`
+  Pop $0
+  Pop $1
+  IntCmp $0 0 done
+  MessageBox MB_YESNO|MB_ICONQUESTION "$(MSG_RUNNING)" /SD IDYES IDYES close
+  Goto cancel
+close:
+  DetailPrint "$(MSG_CLOSING)"
+  nsExec::ExecToStack `powershell.exe -NoProfile -NonInteractive -Command "$$p = Get-Process WinDjView -ErrorAction SilentlyContinue | Where-Object { $$_.Path -eq '$INSTDIR\WinDjView.exe' }; $$p | ForEach-Object { [void]$$_.CloseMainWindow() }; $$p | ForEach-Object { if (-not $$_.WaitForExit(5000)) { $$_.Kill() } }"`
+  Pop $0
+  Pop $1
+  Sleep 500
+  nsExec::ExecToStack `powershell.exe -NoProfile -NonInteractive -Command "exit (Get-Process WinDjView -ErrorAction SilentlyContinue | Where-Object { $$_.Path -eq '$INSTDIR\WinDjView.exe' } | Measure-Object).Count"`
+  Pop $0
+  Pop $1
+  IntCmp $0 0 done
+  MessageBox MB_RETRYCANCEL|MB_ICONEXCLAMATION "$(MSG_STILL_RUNNING)" /SD IDCANCEL IDRETRY close
+cancel:
+  ${If} ${RunningX64}
+    ${EnableX64FSRedirection}
+  ${EndIf}
+  Abort
+done:
+  ${If} ${RunningX64}
+    ${EnableX64FSRedirection}
+  ${EndIf}
+FunctionEnd
+!macroend
+!insertmacro CLOSE_RUNNING ""
+!insertmacro CLOSE_RUNNING "un."
 
 Function .onInit
   SetShellVarContext all          ; per-machine install: shortcuts for all users
@@ -107,6 +151,7 @@ FunctionEnd
 
 Section "$(SEC_MAIN)" SecMain
   SectionIn RO
+  Call CloseRunning
   SetOutPath "$INSTDIR"
   SetOverwrite on
   ${If} ${RunningX64}
@@ -149,6 +194,7 @@ Section /o "$(SEC_DESK)" SecDesk
 SectionEnd
 
 Section "Uninstall"
+  Call un.CloseRunning
   Delete "$INSTDIR\WinDjView.exe"
   Delete "$INSTDIR\WinDjViewUA.dll"
   Delete "$INSTDIR\license.txt"

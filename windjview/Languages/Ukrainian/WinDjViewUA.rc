@@ -801,8 +801,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,1,4,0
- PRODUCTVERSION 2,1,4,0
+ FILEVERSION 2,1,5,0
+ PRODUCTVERSION 2,1,5,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -820,12 +820,12 @@ BEGIN
             VALUE "Comments", "Українська"
             VALUE "CompanyName", "Gennadij Khimij"
             VALUE "FileDescription", "WinDjView-UA Ukrainian resources"
-            VALUE "FileVersion", "2.1.4"
+            VALUE "FileVersion", "2.1.5"
             VALUE "InternalName", "WinDjViewUA.dll"
             VALUE "LegalCopyright", "(C) 2026 Gennadij Khimij; WinDjView (C) 2004-2015 Andrew Zhezherun. GNU GPL v2 or later"
             VALUE "OriginalFilename", "WinDjViewUA.dll"
             VALUE "ProductName", "WinDjView-UA"
-            VALUE "ProductVersion", "2.1.4"
+            VALUE "ProductVersion", "2.1.5"
         END
     END
     BLOCK "VarFileInfo"
@@ -1190,7 +1190,7 @@ BEGIN
     IDS_PAPER_SIZE          "%s x %s %s"
     IDS_VERSION_INFO        "WinDjView %s\nавтор: Андрій Жежерун"
     IDS_VERSION_ABOUT       "WinDjView %s"
-    IDS_CURRENT_VERSION     "2.1.4"
+    IDS_CURRENT_VERSION     "2.1.5"
     IDS_FATAL_ERROR         "Сталася критична помилка.\n\nМожливо, її спричинив пошкоджений документ DjVu. Після цієї помилки програма може працювати неправильно, тому настійно радимо перезапустити її.\n\nНатисніть OK, щоб закрити програму, або Скасувати, щоб повернутися до відкритих документів."
     IDS_OPENFILE            "Відкрити"
     IDS_ALLFILTER           "Усі файли (*.*)"

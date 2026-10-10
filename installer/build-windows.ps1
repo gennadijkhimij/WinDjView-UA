@@ -35,7 +35,7 @@ $dist = Join-Path $inst 'dist'
 New-Item -ItemType Directory -Force $dist | Out-Null
 Push-Location $inst
 try {
-    & $makensis /V2 "/DAPP_VERSION=$version" WinDjView-Setup.nsi
+    & $makensis /V2 /INPUTCHARSET UTF8 "/DAPP_VERSION=$version" WinDjView-Setup.nsi
     if ($LASTEXITCODE -ne 0) { throw 'makensis failed' }
     Move-Item -Force "WinDjView-UA-$version-Setup-x64-x86.exe" $dist
 } finally { Pop-Location }
