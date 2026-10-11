@@ -14,12 +14,9 @@ ipch
 *.user
 *.lib
 
-# Ukrainian installer build output (installer/tools/build.sh)
-installer/build/
+# Installer build output (installer/build-windows.ps1)
 installer/dist/
 installer/*.exe
-installer/bin/**/*.exe
-installer/bin/**/*.dll
 
 # Python bytecode
 __pycache__/

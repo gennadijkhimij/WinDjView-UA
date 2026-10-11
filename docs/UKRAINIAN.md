@@ -55,7 +55,8 @@ powershell -ExecutionPolicy Bypass -File installer\build-windows.ps1
 ### Історичне: мовний пакет для офіційного WinDjView 2.1
 
 Перша версія локалізації (вересень 2026) — лише `WinDjViewUA.dll` для офіційного `WinDjView.exe` 2.1, зібрана на
-Linux через MinGW-w64 (`installer/tools/build.sh`, `build_lang_dll.sh`, `fix_toolbar.py`, `verify_dll.py`).
+Linux через MinGW-w64 (`installer/tools/build.sh`, `build_lang_dll.sh`, `fix_toolbar.py`, `verify_dll.py`;
+з репозиторію прибрано після 2.1.5, лишилися в історії git — тег `v2.1.5` і раніші).
 Особливості цієї збірки: `windres` пише ресурси `TOOLBAR` у форматі, який MFC не читає (`fix_toolbar.py`);
 немає `afxres.rc` (`afx_extra.rc`, `afx_res/*.bin`, `afx_strings_uk.py`); шляхи `..\` у `.rc` переписуються лише
 в рядках-іменах файлів (інакше `\t` у пунктах меню ставав `/t`). Для WinDjView-UA ці інструменти не потрібні:

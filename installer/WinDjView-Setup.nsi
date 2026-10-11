@@ -27,7 +27,7 @@ Unicode true
 !define UNINST_KEY  "Software\Microsoft\Windows\CurrentVersion\Uninstall\WinDjView-UA"
 !define APP_KEY     "Software\Microsoft\Windows\CurrentVersion\App Paths\WinDjView.exe"
 !define PUBLISHER   "Gennadij Khimij (based on WinDjView by Andrew Zhezherun)"
-!define HOMEPAGE    "https://sourceforge.net/projects/windjview-ua/"
+!define HOMEPAGE    "https://github.com/gennadijkhimij/WinDjView-UA"
 
 !ifndef BIN_X64
   !define BIN_X64 "..\windjview\Release_x64"

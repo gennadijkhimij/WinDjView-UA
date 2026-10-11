@@ -2,12 +2,15 @@ name: WinDjView-UA build
 
 # Builds WinDjView.exe + WinDjViewUA.dll (x64 and x86) with Visual Studio and the NSIS installer.
 # A tag v<version> (e.g. v2.1.1) also attaches the installer and SHA256SUMS.txt to a GitHub Release.
-# Publishing to SourceForge and raising version.txt is done separately (see docs/RELEASE.md).
+# Raising version.txt is done separately (see docs/RELEASE.md).
+# Commits that change only version.txt or documentation do not start a build (tags always do).
 on:
   push:
     branches: [main]
     tags: ['v*']
+    paths-ignore: ['version.txt', 'docs/**', '**.md']
   pull_request:
+    paths-ignore: ['version.txt', 'docs/**', '**.md']
   workflow_dispatch:
 
 permissions:
