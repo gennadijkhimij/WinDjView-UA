@@ -13,6 +13,10 @@
    - `windjview/WinDjView.rc`: `FILEVERSION`, `PRODUCTVERSION`, `"FileVersion"`, `"ProductVersion"`, `IDS_CURRENT_VERSION`;
    - `windjview/Languages/Ukrainian/WinDjViewUA.rc`: те саме.
    Додати запис у `windjview/changes.txt`; за потреби — у `installer/NOTICE.txt`.
+   **Опис релізу:** `docs/releases/vX.Y.Z.md` (за зразком попередніх — що нового простою мовою, завантаження,
+   перевірка SHA-256). Якщо файлу немає, збирання складе текст само: `docs/releases/_template.md` + розділ
+   `changes.txt` (`installer/release-notes.ps1`). Назва релізу завжди «WinDjView-UA X.Y.Z».
+   У попередньому найновішому описі додати рядок «Є новіша версія — …» (його опублікує `release-notes.yml`).
 2. **Збірка** (Windows, Visual Studio 2026 з C++ MFC, NSIS 3):
    ```
    powershell -ExecutionPolicy Bypass -File installer\build-windows.ps1
@@ -46,3 +50,8 @@
 
 `installer/publish-sourceforge.sh <версія> [--announce]` — викладає інсталятор у Files проєкту `windjview-ua`
 (ключ `~/.ssh/sourceforge_ed25519`). Перевірка оновлень у 2.1.2+ від SourceForge не залежить.
+
+## Описи вже опублікованих релізів
+
+Змінити текст чи назву релізу: відредагувати `docs/releases/<тег>.md` і відправити в `main` — процес
+`.github/workflows/release-notes.yml` сам оновить відповідні релізи на GitHub (назва «WinDjView-UA X.Y.Z»).

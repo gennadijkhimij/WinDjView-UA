@@ -1,0 +1,32 @@
+name: Release notes
+
+# Keeps the title ("WinDjView-UA X.Y.Z") and text of already published releases in sync with
+# docs/releases/<tag>.md. Edit or add a file there, push to main — the matching release is updated.
+on:
+  push:
+    branches: [main]
+    paths: ['docs/releases/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write   # edit release title and text
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Update releases from docs/releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for f in docs/releases/v*.md; do
+            tag=$(basename "$f" .md)
+            if gh release view "$tag" > /dev/null 2>&1; then
+              gh release edit "$tag" --title "WinDjView-UA ${tag#v}" --notes-file "$f"
+              echo "updated $tag"
+            else
+              echo "no release $tag yet - skipped (the release build uses this file when the tag is pushed)"
+            fi
+          done

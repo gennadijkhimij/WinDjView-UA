@@ -36,8 +36,17 @@ jobs:
           name: WinDjView-UA
           path: installer/dist/*
 
+      - name: Release notes (docs/releases/<tag>.md or the changes.txt section)
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: pwsh
+        run: |
+          ./installer/release-notes.ps1 -Tag "${{ github.ref_name }}" -Out release-notes.md
+          "RELEASE_VERSION=$('${{ github.ref_name }}'.TrimStart('v'))" >> $env:GITHUB_ENV
+
       - name: Attach to the GitHub Release (v* tags)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v3
         with:
+          name: WinDjView-UA ${{ env.RELEASE_VERSION }}
+          body_path: release-notes.md
           files: installer/dist/*
